@@ -1,9 +1,15 @@
-#once
-
-#include "vm.asm"
-
 #ruledef
 {
+    ; unconditional jump to addr
+    jmp {j} => asm { sub.neg Z, Z+1, T, j }
+
+    ; unconditional jump to j stored at addr
+    jmp.reg {addr} => asm
+    {
+        mov addr, $+7 ; replace 0xdead with addr
+        jmp 0xdead 
+    }
+
     jmp.lt {r}, {j} => asm 
     {
         sub.lt r, Z, T, j 

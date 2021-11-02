@@ -1,17 +1,10 @@
-#ruledef
+#ruledef 
 {
-    emit {a:u8} => a`8
+    emit {x:u8} => x`8
 
-    op {a} => asm
-    {
-        emit a 
-    }
-
-    op {a}, {b} => asm
-    {
-        emit a
-        emit b
+    op => asm {
+        emit $+4
     }
 }
 
-op 10
+op

@@ -1,13 +1,14 @@
-#once
-
-#include "vm.asm"
-
 #ruledef 
 {
     add {a}, {b}, {r} => asm
     {
         inv b, r4 
         sub a, r4, r 
+    }
+
+    inc {x} => asm
+    {
+        add x, 1, x
     }
 
     add.lt {a}, {b}, {r}, {j} => asm

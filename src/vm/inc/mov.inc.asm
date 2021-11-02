@@ -29,4 +29,11 @@
     {
         sub.ne a, Z, y, j      
     }
+
+    mov.val {value}, {y} => asm
+    {
+        mov value, T ; output addr to have {value}=$-4
+        mov $-4, y   ; mov {value}, y
+    }
+
 }
